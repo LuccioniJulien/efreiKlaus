@@ -18,16 +18,17 @@ class Elf {
     
     
     func pack(packaging: inout Packaging,toyToInsert:Toy){
-        if (packaging is Box){ 
-            if(!packaging.isOpen){
-                print("Sorry this package is not open")
-                return
-            }
+
+        if(!packaging.isOpen && packaging is Box){
+            print("Sorry this package is not open")
+            return
         }
+        
         if(packaging.toy != nil){
             print("Sorry this package already filled")
             return
         }
+
         packaging.insert(toyToInsert:toyToInsert)
         print("Yeaaaah! Just packing the toy ~~ \(toyToInsert._type) ~~")
     }
@@ -37,10 +38,8 @@ class Elf {
             print("Sorry this package is already empty")
             return packaging.toy
         } 
-        else {
-            packaging.open()
-            print("Ooooooh! Just unpacking the toy ~~ \(packaging.toy!._type) ~~")
-        }
+        packaging.open()
+        print("Ooooooh! Just unpacking the toy ~~ \(packaging.toy!._type) ~~")
         var unpackedToy:Toy = packaging.toy!
         packaging.toy = nil
         return unpackedToy
@@ -55,6 +54,6 @@ class Elf {
     }
 
     func look(){
-        
+
     }
 }

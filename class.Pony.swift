@@ -18,9 +18,7 @@ class Pony:Toy {
     }
 
     func isMoved(){
-
         print("Huuuuuuhu!")
-
     }
 
 }
